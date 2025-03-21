@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear</title>
+</head>
+<body>
+    <h1>Crear Producto</h1>
+    <form action="/crear" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ nombre }}">
+        <br>
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" value="{{ precio }}">
+        <br>
+        <input type="submit" value="crear">
+    </form>
+    <ul>
+        {% for producto in productos %}
+            <li>{{ producto.nombre }}: ${{ producto.precio }}
+                <a href="/crear/{{ producto.nombre }}/{{ producto.precio }}">Crear</a>
+                <a href="/eliminar/{{ producto.nombre }}" onclick="return confirm('¿Seguro que quieres eliminarlo?')">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
