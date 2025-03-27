@@ -1,0 +1,61 @@
+---
+const tasks = [
+  "Estudiar Astro",
+  "Hacer la tarea de matemáticas",
+  "Preparar la presentación",
+  "Leer un libro",
+];
+---
+<html>
+  <head>
+    <title>Mis Tareas Pendientes</title>
+    <style>
+      /* Estilos para el botón */
+      .big-red-button {
+        background-color: red;
+        color: white;
+        font-size: 20px;
+        padding: 15px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+      .big-red-button:hover {
+        background-color: darkred;
+      }
+      /* Estilos para el mensaje */
+      .message {
+        margin-top: 20px;
+        font-size: 24px;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mis Tareas Pendientes</h1>
+    <ul>
+      {tasks.map((task) => (
+        <li>{task}</li>
+      ))}
+    </ul>
+
+    <!-- Botón rojo -->
+    <button class="big-red-button" id="helloButton">Haz clic aquí</button>
+
+    <!-- Mensaje "Hola, mundo" -->
+    <div id="messageContainer" class="message" style="display: none;">
+      ¡Hola, mundo!
+    </div>
+
+    <!-- Script para manejar el clic del botón -->
+    <script>
+      const button = document.getElementById("helloButton");
+      const messageContainer = document.getElementById("messageContainer");
+
+      button.addEventListener("click", () => {
+        messageContainer.style.display = "block"; // Muestra el mensaje
+      });
+    </script>
+  </body>
+</html>
